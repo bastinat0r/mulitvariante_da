@@ -1,0 +1,93 @@
+\documentclass[a4paper,12pt,titlepage]{scrartcl}
+
+%Pakete
+%\usepackage[left=3cm,right=2cm,top=2cm,bottom=3cm]{geometry} %Seitenränder
+\usepackage[utf8]{inputenc} % ermöglicht die direkte Eingabe der Umlaute 
+\usepackage [german]{babel} %Spracheinstellungen
+
+\usepackage {csquotes} % Anführungszeichen nach dem Stil \enquote{ich bin zitiert.}
+\usepackage{subscript} % erlaubt Tiefstellen von Zahlen und Text
+\sloppy %macht ungefähren Blocksatz, wenn nichts anderes an Trennhilfen was nützt
+
+% Hurenkinder und Schusterjungen verhindern
+\clubpenalty10000
+\widowpenalty10000
+\displaywidowpenalty=10000
+
+\usepackage[final]{graphicx}
+\usepackage{floatflt}
+
+\usepackage [
+citestyle = authoryear,
+bibstyle = philosophy-classic,% Zitierstil
+isbn=false,                % ISBN nicht anzeigen, %gleiches geht mit nahezu allen anderen Feldern
+doi=false,
+pagetracker=true,          % ebd. bei wiederholten ngaben (false=ausgeschaltet, page=Seite, spread=Doppelseite, true=automatisch)
+%ümaxbibnames=3,            % maximale Namen, die im Literaturverzeichnis angezeigt werden 
+maxcitenames=3,            % maximale Namen, die im Text angezeigt werden, ab 4 wird u.a. nach den ersten Autor angezeigt
+autocite=inline,           % regelt Aussehen für \autocite (inline=\parancite)
+block=space,               % kleiner horizontaler Platz zwischen den Feldern
+backref=false,              % Seiten anzeigen, auf denen die Referenz vorkommt
+backrefstyle=three+,       % fasst Seiten zusammen, z.B. S. 2f, 6ff, 7-10
+date=short                % Datumsformat
+]{biblatex}
+\newcommand{\todo}[1]{\marginpar{#1}}
+\bibliography{~/sources}
+
+\DeclareBibliographyDriver{report}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \setunit{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \newunit\newblock
+  \printfield{type}%
+  \setunit*{\addspace}%
+  \printfield{number}%
+  \newunit\newblock
+  \printfield{version}%
+  \newunit
+  \printfield{note}%
+  \newunit\newblock
+  \usebibmacro{institution+location+date}%
+  \newunit\newblock
+  \usebibmacro{chapter+pages}%
+  \newunit
+  \printfield{pagetotal}%
+  \newunit\newblock
+  \iftoggle{bbx:isbn}
+    {\printfield{isrn}}
+    {}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \newunit\newblock
+ \usebibmacro{addendum+pubstate}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \usebibmacro{finentry}}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,breaklinks=true]{hyperref}
+%\usepackage[style=authortitle-icomp]{biblatex}
+
+%\bibliography{Pfad/zur/Bibliographie-Datei/Dateiname} 
+
+
+\title{Forschungspapier 1}
+\subtitle{}
+\author{Sebastian Mai}
+\date{\today} % sollte man u.U. anpassen ;)
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\include{chapters/relevanz}
+\include{chapters/theorie}
+\include{chapters/dataset}
+\newpage
+\sloppy
+\printbibliography
+\end{document}
