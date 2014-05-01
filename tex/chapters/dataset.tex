@@ -54,8 +54,129 @@ Für die Auswertung der Umfragen verwenden wir drei Blöcke von Variablen:
 	\item[AV - Ansichten zur Verkehrspolitik] Welche Ziele sollen von der Politik im Verkehrsraum verfolgt werden, welche Probleme sehen die Probanden
 \end{description}
 Das die Ansichten der Befragten Menschen von demographischen Faktoren abhängen sollte offensichtlich sein.
+Drei demographische Faktoren sind für uns besonders interessant: Geschlecht, Alter und Soziale Stellung \footnote{Siehe \cite[33 ff.]{widmer}}.
+Außerdem ist entscheidend, ob die Probanden überhaupt in einer Stadt leben.
+
 Dagegen ist nicht völlig offensichtlich, ob das Mobilitätsverhalten der Probanden die Ansichten zur Verkehrspolitik ändern, oder ob eine andere Einstellung der Probanden dafür sorgt, dass andere Verkehrsmittel genutzt werden – Realistisch betrachtet dürfte beides der Fall sein.
 Wir beschränken uns allerdings darauf, die Auswirkungen des Mobilititätsverhaltens auf die Ansichten der Probanden zu untersuchen.
 So wird ein Fahrradfahrer beispielsweise den Straßenverkehr anders wahrnehmen und unter Umständen auch andere Ansichten zur Verkehrspolitik entwickeln.
+Ob dieser Wahrnehmungsunterschied tatsächlich vorhanden ist lässt sich durch möglicherweise durch QD3: \enquote{When travelling within cities, how often do you encounter problems that limit your access to activities, goods or services?} zeigen.
+
+Die übrigen Fragen Zielen auf die Ansichten der Verkehrspolitik und sollen zeigen wie die Ansichten der Probanden mit Demographie und Mobilitätsverhalten zusammenhängen.
+
 \nocite{schulz}
+
+\begin{table}
+	\begin{tabularx}{\textwidth} { b{8cm} | r | r | r}
+		D10:  Gender.  & abs   & \%    \\ \hline
+		male   & 12675 & 45.79 \\
+		female & 15005 & 54.51 \\	\hline
+		D11:  How old are you?  & abs   & \%    \\ \hline
+		15-10  &  1315 &  4.75 \\
+		20-30  &  3665 & 13.24 \\
+		30-40  &  4372 & 15.79 \\
+		40-50  &  4607 & 16.64 \\
+		50-60  &  4797 & 17.33 \\
+		60-70  &  4701 & 16.98 \\
+		70-80  &  3050 & 11.02 \\
+		80-90  &  1072 &  3.87 \\
+		90-100 &   101 &  0.36 \\ \hline
+		D25: Would you say you live in a...? & abs  & \% & \%(Bereinigt) \\ \hline
+		Rural area or village  &    9673 & 34.94581 & 34.97 \\
+		Small/middle town      &   10650 & 38.47543 & 38.50 \\
+		Large town             &    7340 & 26.51734 & 26.53 \\
+		NA's                   &      17 &  0.06142 &       \\ \hline
+		D61: On the following scale, step '1' corresponds to "the lowest level in the society"; step '10' corresponds to "the highest level in the society". Could you tell me on which step you would place yourself? & abs  & \% & \%(Bereinigt) \\ \hline
+		1,2  & 1109 &  4.007  &       4.099 \\
+		3,4  & 5841 &  21.102 &       21.588 \\
+		5,6  & 13361&  48.270 &       49.381 \\
+		7,8  & 6207 &  22.424 &       22.940 \\
+		9,10 & 539  &  1.947  &       1.992 \\
+		NA's & 623  &  2.251 \\
+	\end{tabularx}
+	\caption{Variablenblock Demographie mit Verteilungen}
+\end{table}
+
+\begin{table}
+	\begin{tabularx}{\textwidth} { b{12cm} | r | r}
+QD1: How often do you...? \\ \hline
+QD1\_1: Use a car (whether as a driver or a passenger) & abs & \% \\ \hline
+Several times a day          &   8749 & 31.6077 \\
+Once a day                   &   4139 & 14.9530 \\
+Two or three times a week    &   5267 & 19.0282 \\
+About once a week            &   2208 &  7.9769 \\
+Two or three times a month   &   1559 &  5.6322 \\
+Less often                   &   2463 &  8.8981 \\
+Never                        &   3230 & 11.6691 \\
+DK                           &     65 &  0.2348 \\ \hline
+QD1\_2: Use public transports & abs & \% \\ \hline
+
+Several times a day          &   2546 &  9.1980 \\
+Once a day                   &   1576 &  5.6936 \\
+Two or three times a week    &   3203 & 11.5715 \\
+About once a week            &   1990 &  7.1893 \\
+Two or three times a month   &   2697 &  9.7435 \\
+Less often                   &   7902 & 28.5477 \\
+Never                        &   7699 & 27.8143 \\
+DK                           &     67 &  0.2421 \\ \hline
+QD1\_3: Ride a motorbike (whether as a driver or a passenger) & abs & \% \\ \hline
+
+Several times a day          &    318 &  1.1488 \\
+Once a day                   &    249 &  0.8996 \\
+Two or three times a week    &    408 &  1.4740 \\
+About once a week            &    285 &  1.0296 \\
+Two or three times a month   &    337 &  1.2175 \\
+Less often                   &   1426 &  5.1517 \\
+Never                        &  24510 & 88.5477 \\
+DK                           &    147 &  0.5311 \\ \hline
+QD1\_4: Cycle & abs & \% \\ \hline
+
+Several times a day          &   2059 &  7.4386 \\
+Once a day                   &   1567 &  5.6611 \\
+Two or three times a week    &   3031 & 10.9501 \\
+About once a week            &   1726 &  6.2355 \\
+Two or three times a month   &   1666 &  6.0188 \\
+Less often                   &   3976 & 14.3642 \\
+Never                        &  13535 & 48.8981 \\
+DK                           &    120 &  0.4335 \\
+	\end{tabularx}
+	\caption{Variblenblock Mobilitätsverhalten mit Verteilungen}
+\end{table}
+
+
+\begin{table}
+	\begin{tabularx}{\textwidth} { b{8cm} | r | r | r}
+		QD3: When travelling within cities, how often do you encounter problems that limit your access to
+activities, goods or services? & avg & \% & \% (Bereinigt) \\ \hline
+		Often      &    2345 &  8.472  &       8.843  \\
+		Sometimes  &    7097 & 25.639  &      26.763  \\
+		Rarely     &    8998 & 32.507  &      33.932  \\
+		Never      &    7643 & 27.612  &      28.822  \\
+		DK         &     435 &  1.572  &       1.640  \\
+		NA's       &    1162 &  4.198  \\ \hline
+		QD4: Do you think that the following issues are an important problem or not within cities? \\ \hline
+		QD4\_1: Road congestion & avg & \% \\ \hline 
+		A very important problem        &     7772 & 28.078 \\
+A fairly important problem          &    11524 & 41.633 \\
+Not a very important problem        &     5845 & 21.116 \\
+Not an important problem at all     &     2064 &  7.457 \\
+DK                                  &      475 &  1.716 \\ \hline
+		QD4\_2: Noise pollution & avg & \% \\ \hline 
+		A very important problem        &     7180 & 25.939 \\
+A fairly important problem          &    11436 & 41.315 \\
+Not a very important problem        &     6591 & 23.811 \\
+Not an important problem at all     &     2013 &  7.272 \\
+DK                                  &      460 &  1.662 \\ \hline
+		QD4\_3: Air pollution & avg & \% \\ \hline 
+
+A very important problem            &    10342 & 37.363 \\
+A fairly important problem          &    10912 & 39.422 \\
+Not a very important problem        &     4462 & 16.120 \\
+Not an important problem at all     &     1606 &  5.802 \\
+DK                                  &      358 &  1.293 \\
+
+	\end{tabularx}
+	\caption{Variblenblock Ansichten zur Mobilität und Mobilitätswahrnehmung}
+\end{table}
+
 % subsection Metadaten (end)
