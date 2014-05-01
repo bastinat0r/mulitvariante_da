@@ -5,47 +5,13 @@
 \nocite{eb794}
 \subsection{Erhebung}
 
-Für den Datensatz wurden Daten aus 28 Verschiedenen Ländern der EU erhoben.
-%\begin{floatingtable}[r] {
-%		\begin{tabular}{l | l | l}
-%			von & bis & Land \\ \hline
-%			25.05.2013 & 09.06.2013 & Belgium \\
-%			25.05.2013 & 02.06.2013 & Bulgaria \\
-%			24.05.2013 & 06.06.2013 & Czech Republic \\
-%			25.05.2013 & 09.06.2013 & Denmark \\
-%			24.05.2013 & 09.06.2013 & Germany \\
-%			24.05.2013 & 09.06.2013 & Estonia \\
-%			25.05.2013 & 09.06.2013 & Ireland \\
-%			25.05.2013 & 08.06.2013 & Greece \\
-%			24.05.2013 & 09.06.2013 & Greece \\
-%			24.05.2013 & 08.06.2013 & France \\
-%			25.05.2013 & 07.06.2013 & Italy \\
-%			24.05.2013 & 09.06.2013 & Rep. of Cyprus \\
-%			25.05.2013 & 09.06.2013 & Latvia \\
-%			25.05.2013 & 09.06.2013 & Lithuania \\
-%			25.05.2013 & 09.06.2013 & Luxembourg \\
-%			25.05.2013 & 09.06.2013 & Hungary \\
-%			24.05.2013 & 09.06.2013 & Malta \\
-%			24.05.2013 & 09.06.2013 & Netherlands \\
-%			24.05.2013 & 09.06.2013 & Austria \\
-%			25.05.2013 & 09.06.2013 & Poland \\
-%			28.05.2013 & 09.06.2013 & Portugal \\
-%			25.05.2013 & 04.06.2013 & Romania \\
-%			25.05.2013 & 09.06.2013 & Slovenia \\
-%			25.05.2013 & 09.06.2013 & Slovakia \\
-%			25.05.2013 & 09.06.2013 & Finland \\
-%			25.05.2013 & 09.06.2013 & Sweden \\
-%			25.05.2013 & 09.06.2013 & United Kingdom \\
-%			25.05.2013 & 09.06.2013 & Croatia \\
-%		\end{tabular}}
-%	\caption{Erhebungszeiträume und Länder: \cite{eb794}}
-%\end{floatingtable}
+Für den Datensatz wurden Daten aus 28 Verschiedenen Ländern der EU erhoben, die Erhebung fand statt zwischen 25.04.2013 und 09.06.2013.
 
 In jedem Land wurden ca. 1000 Menschen in computergeleiteten face-to-face Interviewes befragt, in Deutschland wurden 1000 Menschen in West- und 500 in Ostdeutschland befragt. In Luxembourg aufgrund der geringen Bevölkerungszahl nur 600 und in Großbritannien 1300. Insgesamt wurden 27680 Menschen befragt \parencite{eceuropaeu}.
 
 \subsection{Variablen}
 
-Bei den Ansichten zur Verkehrspolitik gibt es vermutlich zwei Konkurrierende Ziele: Einerseits die Erhaltung und Erweiterung der eigenen Mobilität und andererseits die Förderung der Nachhaltigkeit der genutzten Verkehrsmittel.
+Bei den Ansichten zur Verkehrspolitik gibt es vermutlich zwei Konkurrierende Ziele: Einerseits die Erhaltung und Erweiterung der eigenen Mobilität und andererseits die Förderung der Nachhaltigkeit der genutzten Verkehrsmittel\footnote{Hier konkuriert ein kultureller Wert mit dem Egoismus des Homo Oeconomicus.}.
 
 Für die Auswertung der Umfragen verwenden wir drei Blöcke von Variablen:
 \begin{description}
@@ -55,18 +21,19 @@ Für die Auswertung der Umfragen verwenden wir drei Blöcke von Variablen:
 \end{description}
 Das die Ansichten der Befragten Menschen von demographischen Faktoren abhängen sollte offensichtlich sein.
 Drei demographische Faktoren sind für uns besonders interessant: Geschlecht, Alter und Soziale Stellung \footnote{Siehe \cite[33 ff.]{widmer}}.
-Außerdem ist entscheidend, ob die Probanden überhaupt in einer Stadt leben.
+Außerdem ist entscheidend, ob die Probanden überhaupt in einer Stadt leben – welche Datensätze interessant sind wird also maßgeblich durch QD25 bestimmt.
 
 Dagegen ist nicht völlig offensichtlich, ob das Mobilitätsverhalten der Probanden die Ansichten zur Verkehrspolitik ändern, oder ob eine andere Einstellung der Probanden dafür sorgt, dass andere Verkehrsmittel genutzt werden – Realistisch betrachtet dürfte beides der Fall sein.
 Wir beschränken uns allerdings darauf, die Auswirkungen des Mobilititätsverhaltens auf die Ansichten der Probanden zu untersuchen.
 So wird ein Fahrradfahrer beispielsweise den Straßenverkehr anders wahrnehmen und unter Umständen auch andere Ansichten zur Verkehrspolitik entwickeln.
-Ob dieser Wahrnehmungsunterschied tatsächlich vorhanden ist lässt sich durch möglicherweise durch QD3: \enquote{When travelling within cities, how often do you encounter problems that limit your access to activities, goods or services?} zeigen.
 
+Ob dieser Wahrnehmungsunterschied tatsächlich vorhanden ist lässt sich durch möglicherweise durch QD3: \enquote{When travelling within cities, how often do you encounter problems that limit your access to activities, goods or services?} zeigen.
 Die übrigen Fragen Zielen auf die Ansichten der Verkehrspolitik und sollen zeigen wie die Ansichten der Probanden mit Demographie und Mobilitätsverhalten zusammenhängen.
+\\
 
 \nocite{schulz}
 
-\begin{table}
+\begin{table}[h]
 	\begin{tabularx}{\textwidth} { b{8cm} | r | r | r}
 		D10:  Gender.  & abs   & \%    \\ \hline
 		male   & 12675 & 45.79 \\
@@ -97,7 +64,7 @@ Die übrigen Fragen Zielen auf die Ansichten der Verkehrspolitik und sollen zeig
 	\caption{Variablenblock Demographie mit Verteilungen}
 \end{table}
 
-\begin{table}
+\begin{table}[h]
 	\begin{tabularx}{\textwidth} { b{12cm} | r | r}
 QD1: How often do you...? \\ \hline
 QD1\_1: Use a car (whether as a driver or a passenger) & abs & \% \\ \hline
@@ -144,10 +111,10 @@ DK                           &    120 &  0.4335 \\
 \end{table}
 
 
-\begin{table}
+\begin{table}[h]
 	\begin{tabularx}{\textwidth} { b{8cm} | r | r | r}
 		QD3: When travelling within cities, how often do you encounter problems that limit your access to
-activities, goods or services? & avg & \% & \% (Bereinigt) \\ \hline
+activities, goods or services? & abs & \% & \% (Bereinigt) \\ \hline
 		Often      &    2345 &  8.472  &       8.843  \\
 		Sometimes  &    7097 & 25.639  &      26.763  \\
 		Rarely     &    8998 & 32.507  &      33.932  \\
@@ -155,19 +122,19 @@ activities, goods or services? & avg & \% & \% (Bereinigt) \\ \hline
 		DK         &     435 &  1.572  &       1.640  \\
 		NA's       &    1162 &  4.198  \\ \hline
 		QD4: Do you think that the following issues are an important problem or not within cities? \\ \hline
-		QD4\_1: Road congestion & avg & \% \\ \hline 
+		QD4\_1: Road congestion & abs & \% \\ \hline 
 		A very important problem        &     7772 & 28.078 \\
 A fairly important problem          &    11524 & 41.633 \\
 Not a very important problem        &     5845 & 21.116 \\
 Not an important problem at all     &     2064 &  7.457 \\
 DK                                  &      475 &  1.716 \\ \hline
-		QD4\_2: Noise pollution & avg & \% \\ \hline 
+		QD4\_2: Noise pollution & abs & \% \\ \hline 
 		A very important problem        &     7180 & 25.939 \\
 A fairly important problem          &    11436 & 41.315 \\
 Not a very important problem        &     6591 & 23.811 \\
 Not an important problem at all     &     2013 &  7.272 \\
 DK                                  &      460 &  1.662 \\ \hline
-		QD4\_3: Air pollution & avg & \% \\ \hline 
+		QD4\_3: Air pollution & abs & \% \\ \hline 
 
 A very important problem            &    10342 & 37.363 \\
 A fairly important problem          &    10912 & 39.422 \\
@@ -177,6 +144,40 @@ DK                                  &      358 &  1.293 \\
 
 	\end{tabularx}
 	\caption{Variblenblock Ansichten zur Mobilität und Mobilitätswahrnehmung}
+\end{table}
+\begin{table} {
+		\begin{tabular}{l | l | l}
+			von & bis & Land \\ \hline
+			25.05.2013 & 09.06.2013 & Belgium \\
+			25.05.2013 & 02.06.2013 & Bulgaria \\
+			24.05.2013 & 06.06.2013 & Czech Republic \\
+			25.05.2013 & 09.06.2013 & Denmark \\
+			24.05.2013 & 09.06.2013 & Germany \\
+			24.05.2013 & 09.06.2013 & Estonia \\
+			25.05.2013 & 09.06.2013 & Ireland \\
+			25.05.2013 & 08.06.2013 & Greece \\
+			24.05.2013 & 09.06.2013 & Greece \\
+			24.05.2013 & 08.06.2013 & France \\
+			25.05.2013 & 07.06.2013 & Italy \\
+			24.05.2013 & 09.06.2013 & Rep. of Cyprus \\
+			25.05.2013 & 09.06.2013 & Latvia \\
+			25.05.2013 & 09.06.2013 & Lithuania \\
+			25.05.2013 & 09.06.2013 & Luxembourg \\
+			25.05.2013 & 09.06.2013 & Hungary \\
+			24.05.2013 & 09.06.2013 & Malta \\
+			24.05.2013 & 09.06.2013 & Netherlands \\
+			24.05.2013 & 09.06.2013 & Austria \\
+			25.05.2013 & 09.06.2013 & Poland \\
+			28.05.2013 & 09.06.2013 & Portugal \\
+			25.05.2013 & 04.06.2013 & Romania \\
+			25.05.2013 & 09.06.2013 & Slovenia \\
+			25.05.2013 & 09.06.2013 & Slovakia \\
+			25.05.2013 & 09.06.2013 & Finland \\
+			25.05.2013 & 09.06.2013 & Sweden \\
+			25.05.2013 & 09.06.2013 & United Kingdom \\
+			25.05.2013 & 09.06.2013 & Croatia \\
+		\end{tabular}}
+	\caption{Erhebungszeiträume und Länder: \cite{eb794}}
 \end{table}
 
 % subsection Metadaten (end)
