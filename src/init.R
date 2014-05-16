@@ -1,1 +1,1 @@
-install.packages(c("descr", "car", "foreign"))
+install.packages(c("descr", "car", "foreign", "psych", "ca"))
