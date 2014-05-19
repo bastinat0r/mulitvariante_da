@@ -23,7 +23,7 @@ ct  <- crosstab(rp13$Zeit_re, rp13$Raum, prop.t = T, plot = F)
 fit <- ca(ct$prop.tbl)
 
 # Ausgabe als Graphik, Parameter siehe help(plot.ca)
-plot(fit, mass = c(F,T), contrib = "absolute", arrows = c(F, T), labels = c(1,2))
+plot(fit, mass = c(F,T), contrib = "absolute", arrows = c(F, T), labels = c(2,2))
 
 # Formatierte Textausgabe
 summary(fit)
