@@ -1,48 +1,74 @@
 library(ca)
-library(descr) # crosstab
+library(foreign)
+library(descr)
 
-# Minimalbeispiel aus dem ca-Paket
-data("smoke")
-fit <- ca(smoke)
+#albus datensatz einlesen
+ab2010 <- read.spss("data/ZA4610_A10.SAV")
+
+# Kreuztabelle erstellen
+# 'as.numeric' um die level nicht einzeln zu benennen
+ct_7_33 <- CrossTable(as.numeric(ab2010$V7), ab2010$V33)
+
+# prop.tbl für den Normalisierungsschritt (anstelle der absoluten Häufigkeiten werden die relativen Spalten- und Zeilenhäufigkeiten benutzt.
+fit <- ca(ct_7_33$prop.tbl)
+
+# für mögliche Parameter siehe help(plot.ca)
 plot(fit)
 summary(fit)
 
-# Einlesen des Datensatzes (rp13 WLAN-Accespoints)
-rp13 <- read.csv("data/rp13.csv")
+plot_ca <- function(var1, var2) {
+	ct <- CrossTable(var1, var2)
+	fit <- ca(ct$prop.tbl)
+	summary(fit)
+	plot(fit, mass = c(T,T), contrib = "absolute", arrows = c(F, F), labels = c(2,2))
 
-# Zeitformat mit hinreichender genauigkeit. %F ~ y-m-d
-time_format <- "%FT%H"
-time <- strptime(rp13$Zeit, format = time_format)
-rp13$Zeit_re <- strftime(time, format = "%H")
+}
 
 
-# Erstellen einer Kreuztabelle. Wichtig für ca: prop.t = T sorgt dafür, dass eine normalisierte Tabelle erstellt wird
-ct  <- crosstab(rp13$Zeit_re, rp13$Raum, prop.t = T, plot = F)
+plot_ca(as.numeric(ab2010$V7), ab2010$V35)
 
-# Erstellen der ca
-fit <- ca(ct$prop.tbl)
+#ingelhart-index, links-rechts-selbsteinstufung
+plot_ca(ab2010$V77, as.numeric(ab2010$V78))
 
-# Ausgabe als Graphik, Parameter siehe help(plot.ca)
-plot(fit, mass = c(F,T), contrib = "absolute", arrows = c(F, T), labels = c(2,2))
+plot_ca(ab2010$V341, as.numeric(ab2010$V7))
 
-# Formatierte Textausgabe
-summary(fit)
+svg( file = "diagrams/large_example.svg", pointsize = 8, width = 15, height= 15)
+plot_ca(ab2010$V341, as.numeric(ab2010$V7))
+dev.off()
 
-# Gerät & Raum
-ct2  <- crosstab(rp13$fortlaufende.Gerätenummer, rp13$Raum, prop.t = T, plot = F)
-fit2 <- ca(ct2$prop.tbl)
-plot(fit2, mass = c(F,T), contrib = "absolute", arrows = c(F, T), labels = c(0,2))
+library(FactoMineR) # MCA http://www.inside-r.org/packages/cran/FactoMineR/docs/MCA
 
-# Räume ohne Garderobe und vip
-#rp13_subset <- subset(rp13, rp13$Raum != "garderobe" & rp13$Raum != "vip")
 
-# Bühnen & Workshop-Räume
-#rp13_subset <- subset(rp13, grepl("^(stage|workshop)", rp13$Raum))
+ab2010$V7_num <- as.numeric(ab2010$V7)
+ca_vars <- ab2010[c("V341","V7_num")]
+#cats = apply(ca_vars, 2, function(x) nlevels(as.factor(x)))
+mca1 = MCA(ca_vars, graph=FALSE)
 
-# siehe help(regex) und help(grepl)
-rp13_subset <- subset(rp13, !grepl("^(stage|workshop|garderobe|vip|lounge)", rp13$Raum))
+# table of eigenvalues
+#mca1$eig
+# column coordinates
+#mca1$var$coord
+# row coordinates
+#mca1$ind$coord
 
-ct2_subset  <- CrossTable(rp13_subset$fortlaufende.Gerätenummer, rp13_subset$Raum)
-fit2_subset <- ca(ct2_subset$prop.tbl)
-plot(fit2_subset, mass = c(F,F), contrib = "absolute", arrows = c(F, T), labels = c(0,2))
+# data frames for ggplot
+mca1_vars_df = data.frame(mca1$var$coord, Variable = c("1","2","3","4","5","6","7","8","9","a","b","c","d"))
+#mca1_vars_df = data.frame(mca1$var$coord, Variable=rep(names(cats), cats))
+#mca1_vars_df = mca1_vars_df[c(1,3:8),]
 
+mca1_obs_df = data.frame(mca1$ind$coord)
+
+library(ggplot2) # ggplot is depricated
+
+ # MCA plot of observations and categories
+print(
+ggplot(data=mca1_obs_df, aes(x=Dim.1, y=Dim.2)) +
+  geom_hline(yintercept=0, colour="gray70") +
+  geom_vline(xintercept=0, colour="gray70") +
+  geom_point(colour="gray50", alpha=0.7) +
+  geom_density2d(colour="gray80") +
+  geom_text(data=mca1_vars_df,
+            aes(x=Dim.1, y=Dim.2, label=rownames(mca1_vars_df),
+colour=Variable)) +
+	scale_colour_discrete(name="Variable")
+)
