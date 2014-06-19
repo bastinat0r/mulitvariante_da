@@ -7,10 +7,12 @@ ab2010 <- read.spss("data/ZA4610_A10.SAV")
 
 # Kreuztabelle erstellen
 # 'as.numeric' um die level nicht einzeln zu benennen
-ct_7_33 <- CrossTable(as.numeric(ab2010$V7), ab2010$V33)
+#ct_7_33 <- CrossTable(as.numeric(ab2010$V7), ab2010$V33)
+ct_7_33 <- prop.table(table(as.numeric(ab2010$V7), ab2010$V33) ,1)
 
 # prop.tbl für den Normalisierungsschritt (anstelle der absoluten Häufigkeiten werden die relativen Spalten- und Zeilenhäufigkeiten benutzt.
-fit <- ca(ct_7_33$prop.tbl)
+#fit <- ca(ct_7_33$prop.tbl)
+fit <- ca(ct_7_33)
 
 # für mögliche Parameter siehe help(plot.ca)
 plot(fit)
@@ -19,7 +21,7 @@ summary(fit)
 plot_ca <- function(var1, var2) {
 	ct <- CrossTable(var1, var2)
 	fit <- ca(ct$prop.tbl)
-	summary(fit)
+	print(summary(fit))
 	plot(fit, mass = c(T,T), contrib = "absolute", arrows = c(F, F), labels = c(2,2))
 
 }
@@ -39,8 +41,9 @@ dev.off()
 library(FactoMineR) # MCA http://www.inside-r.org/packages/cran/FactoMineR/docs/MCA
 
 
-ab2010$V7_num <- as.numeric(ab2010$V7)
-ca_vars <- ab2010[c("V341","V7_num")]
+ab2010$V7_re <- ab2010$V7
+levels(ab2010$V7_re) <- c(1:11)
+ca_vars <- ab2010[c("V341","V7_re")]
 #cats = apply(ca_vars, 2, function(x) nlevels(as.factor(x)))
 mca1 = MCA(ca_vars, graph=FALSE)
 
@@ -52,12 +55,11 @@ mca1 = MCA(ca_vars, graph=FALSE)
 #mca1$ind$coord
 
 # data frames for ggplot
-mca1_vars_df = data.frame(mca1$var$coord, Variable = c("1","2","3","4","5","6","7","8","9","a","b","c","d"))
+mca1_vars_df = data.frame(mca1$var$coord, Variable = c("1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","f","h","i","j"))
 #mca1_vars_df = data.frame(mca1$var$coord, Variable=rep(names(cats), cats))
-#mca1_vars_df = mca1_vars_df[c(1,3:8),]
+mca1_vars_df = mca1_vars_df[c(1,3:8),]
 
 mca1_obs_df = data.frame(mca1$ind$coord)
-
 library(ggplot2) # ggplot is depricated
 
  # MCA plot of observations and categories
