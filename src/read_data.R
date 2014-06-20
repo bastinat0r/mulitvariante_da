@@ -3,7 +3,7 @@ setwd("/home/sebastian/projects/uni/multivariante_da")
 library(foreign) # for spss-data-format
 
 data_raw <- read.spss("data/ZA5852_v3-0-1.sav", to.data.frame = T)
-data_cities  <- subset(data_raw, d25 == "Large town")
+cities  <- subset(data_raw, d25 == "Large town")
 
 
 
@@ -16,4 +16,3 @@ data_cities  <- subset(data_raw, d25 == "Large town")
 # QD3 When travelling within cities, how often do you encounter problems that limit your access to activities, goods or services?
 # QD4 Do you think that the following issues are an important problem or not within cities ...
 
-View(bc)

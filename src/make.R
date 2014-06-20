@@ -1,0 +1,11 @@
+setwd("/home/sebastian/projects/uni/multivariante_da")
+library(descr)
+library(knitr)
+library(car)
+library(psych)
+library(vcd)
+source("src/read_data.R")
+source("src/gmedian.R")
+source("src/bivariateComp.R")
+
+knit2html("src/bivariate.md", "diagrams/bivariate.html")
